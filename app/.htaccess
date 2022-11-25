@@ -1,0 +1,2 @@
+# Interdire l'accès au dossier depuis l'extérieur du serveur
+Deny from all
