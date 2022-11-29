@@ -1,5 +1,7 @@
 <?php
 
+
+
     /**
      * Affichage de la page d'accueil.
      *
@@ -8,33 +10,34 @@
 
     class MainController
     {
-        /**
-         * Affiche la page HTML.
-         *
-         * @param string $viewName Vue à afficher
-         * @param array  $viewData Tableau de données pour la vue
-         * @return void
-         */
-        protected function show($viewName, $viewData = [])
+        public function home()
+        
         {
-            // global permet d'utiliser une variable déclarée dans le fil classique du code
-            // (dans index.php). Ici on va pouvoir utiliser la variable $router
-            // déclarée dans index.php
-            // !ATTENTION C'est une mauvaise pratique d'utiliser global
+            $characterObject = new Character;
+            $characters = $characterObject->findAll();
+            //var_dump($characters);
+            $data = ['characters' => $characters];
+           // var_dump($data);
+
+           $this->show('home', $characters);
+        }
+
+        public function creators()
+        {
+            $this->show('creators');
+        }
+
+        public function show($viewName, $data= [])
+        {
             global $router;
     
-            // la méthode show() affiche les pages : elle est appelée sur toutes les pages, donc je peux charger ici les données communes à toutes pages
-    
-            /*********************************************************************/
-            /* Gestion du menu                                                   */
-            /*********************************************************************/
-            
-            
-            // instanciation du modèle Character
-            $character = new Character();
+            $absoluteUrl = $_SERVER['BASE_URI'];
+          //  var_dump(extract($viewData));
+      
     
             require_once __DIR__ . '/../views/header.tpl.php';
             require_once __DIR__ . '/../views/' . $viewName . '.tpl.php';
             require_once __DIR__ . '/../views/footer.tpl.php';
         }
+
     }

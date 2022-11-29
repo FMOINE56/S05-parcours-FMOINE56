@@ -17,8 +17,8 @@
               </button>
               <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                  <a class="nav-link active" aria-current="page" href="#">Accueil</a>
-                  <a class="nav-link" href="creators.tpl.php">Les créateurs du jeu</a>
+                  <a class="nav-link active" aria-current="page" href="<?= $router->generate('home') ?>">Accueil</a>
+                  <a class="nav-link" href="<?= $router->generate('creators') ?>">Les créateurs du jeu</a>
                 </div>
               </div>
             </div>

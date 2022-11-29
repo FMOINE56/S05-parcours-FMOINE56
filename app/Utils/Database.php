@@ -2,7 +2,7 @@
 
 // l'instruction use indique qu'elle classe je vais utiliser
 // ici on utilise la classe PDO de PHP
-use PDO;
+
 
 // Retenir son utilisation  => Database::getPDO()
 // Design Pattern : Singleton

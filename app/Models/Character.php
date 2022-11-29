@@ -1,6 +1,7 @@
 <?php
 
 
+
 class Character {
 
     // Création des propriétés pour chaque champ de la table Character
@@ -21,14 +22,14 @@ class Character {
         // On crée notre requête SQL
         $sql = 'SELECT *
         FROM `character`
-        LEFT JOIN type
+        LEFT JOIN `type` 
         ON character.type_id = type.id';
     
         // On exécute notre requête
         $pdoStatement = $pdo->query($sql);
 
         // On récupère les données
-        $charactersList = $pdoStatement->fetchAll(PDO::FETCH_CLASS, 'Character');
+        $charactersList = $pdoStatement->fetchAll(PDO::FETCH_CLASS, self::class);
        // var_dump($charactersList);
         return $charactersList;
     }
@@ -82,7 +83,7 @@ class Character {
      */
     public function getUpdatedAt()
     {
-    return $this->updated_at;
+    return $this->updated_at; 
     }
 
     /**
